@@ -23,9 +23,52 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  border-radius: 400px !important;
-  -moz-border-radius: 400px !important;
-  -ms-border-radius: 400px !important;
-  -o-border-radius: 400px !important;
-  -webkit-border-radius: 400px !important;
+}
+
+.like-btn {
+  padding-top: 2px;
+  background-color: white;
+  border-radius: 4rem;
+  width: 2rem;
+  height: 2rem;
+  -webkit-border-radius: 4rem;
+  -moz-border-radius: 4rem;
+  -ms-border-radius: 4rem;
+  -o-border-radius: 4rem;
+}
+.heart-container {
+  position: relative;
+}
+@keyframes heart-size {
+  0% {
+    font-size: 1rem;
+  }
+  60% {
+    font-size: 1.25rem;
+  }
+  100% {
+    font-size: 1rem;
+  }
+}
+.solid-heart {
+  color: red;
+  animation-name: heart-size;
+  animation-timing-function: ease-in;
+  animation-duration: 0.25s;
+  transition: all 0.25s ease-out;
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -ms-transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+}
+
+@media screen and (min-width: 576px) {
+  .heart-container:hover .border-heart {
+    color: red;
+    transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+  }
 }

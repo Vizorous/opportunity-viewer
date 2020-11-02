@@ -1,7 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Button, Container, Media } from "react-bootstrap";
-import { useMediaQuery } from "react-responsive";
+import { useResponsiveContext } from "../../App";
 import LikeButton from "../../components/LikeButton/LikeButton";
+
 const responsiveResizes = (isMobile: boolean) => {
   const containerP: string = isMobile ? "p-2" : "p-3";
   const textContainerP: string = isMobile ? "pt-3 px-2" : "pt-2";
@@ -15,7 +16,7 @@ interface OppCardProps {
   setFavorited: Function;
 }
 export default function OppCard({ favorited, setFavorited }: OppCardProps) {
-  const isMobile: boolean = useMediaQuery({ maxWidth: 576 });
+  const { isMobile } = useResponsiveContext();
   const { containerP, textContainerP, textM, textW } = useMemo(
     () => responsiveResizes(isMobile),
     [isMobile]
@@ -24,6 +25,7 @@ export default function OppCard({ favorited, setFavorited }: OppCardProps) {
   return (
     <Container className={`border ${containerP} opp-card`}>
       <LikeButton
+        className="opp-card__save-btn"
         favorited={favorited}
         setFavorited={setFavorited}></LikeButton>
       <Media className="flex-wrap">
