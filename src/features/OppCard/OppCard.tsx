@@ -28,8 +28,6 @@ export default function OppCard({
   const sideP: string = isMobile ? "px-2" : "";
   const botM: string = isMobile ? "mb-1" : "mb-2";
   const textW: string = isMobile ? "" : "w-85";
-  const product = "gv";
-  //   const;
   return (
     <Container className={`border ${allP} opp-card`}>
       <Button
@@ -38,15 +36,6 @@ export default function OppCard({
         onClick={() => setFavorited(!favorited)}>
         {favorited && <i className="fas fa-heart"></i>}
         {!favorited && <i className="far fa-heart"></i>}
-
-        {/* <i className="material-icons md-24 opp-card__save-btn--borderless">
-          favorite_border
-        </i>
-        <i
-          className="material-icons md-24 opp-card__save-btn--filled"
-          style={{ color: btnColor }}>
-          favorite
-        </i> */}
       </Button>
       <Media className="flex-wrap">
         <img
@@ -58,9 +47,6 @@ export default function OppCard({
           alt="Generic placeholder"
         />
         <Media.Body className={`${topP} ${sideP} `}>
-          {/* <p className="mb-1">
-            <small className={`text-${product}`}>Global Volunteer</small>
-          </p> */}
           <div className="d-flex justify-content-between">
             <h5>Media Heading</h5>
           </div>
