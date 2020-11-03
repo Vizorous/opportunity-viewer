@@ -23,7 +23,7 @@ export default function OppCard({ favorited, setFavorited }: OppCardProps) {
   );
 
   return (
-    <Container className={`border ${containerP} opp-card`}>
+    <Container className={`border ${containerP} opp-card rounded`}>
       <LikeButton
         className="opp-card__save-btn"
         favorited={favorited}

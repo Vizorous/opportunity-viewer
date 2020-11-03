@@ -5,6 +5,7 @@ import "./App.css";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import OppCard from "./features/OppCard/OppCard";
 import { Container } from "react-bootstrap";
+import NavBar from "./components/NavBar";
 const client = new ApolloClient({
   uri: "https://48p1r2roz4.sse.codesandbox.io",
   cache: new InMemoryCache(),
@@ -26,10 +27,17 @@ function App() {
       <ResponsiveContext.Provider value={{ isMobile }}>
         <div>
           <div className="App">
+            <NavBar></NavBar>
             <Container fluid="md" className="p-3">
               <OppCard
                 favorited={favorited}
                 setFavorited={setFavorited}></OppCard>
+              <div
+                style={{
+                  height: "1000vh",
+                  width: "10vw",
+                  backgroundColor: "red",
+                }}></div>
             </Container>
           </div>
         </div>
