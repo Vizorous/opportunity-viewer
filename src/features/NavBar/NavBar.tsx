@@ -1,7 +1,6 @@
 import React, { ReactElement } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-
-import { useResponsiveContext } from "../../App";
+import { useResponsive } from "../../utils/customHooks";
 
 import Search from "../Search/Search";
 
@@ -14,13 +13,13 @@ const responsiveResizes = (isLg: boolean) => {
 };
 
 export default function NavBar(): ReactElement {
-  const { isLg } = useResponsiveContext();
+  const { isLG } = useResponsive();
   const {
     navWidth,
     brandWidth,
     collapseWidth,
     searchWidth,
-  } = responsiveResizes(isLg);
+  } = responsiveResizes(isLG);
 
   return (
     <Navbar bg="white" expand="lg" fixed="top" className="shadow-sm">
@@ -28,13 +27,13 @@ export default function NavBar(): ReactElement {
         <Navbar.Brand
           href="#home"
           className={`${brandWidth} d-flex align-items-center`}>
-          {!isLg && (
+          {!isLG && (
             <img
               alt="AIESEC logo"
               src="https://cdn-expa.aiesec.org/assets/images/aiesec_logo_black.svg"
               height="26px"></img>
           )}
-          {isLg && (
+          {isLG && (
             <img
               alt="AIESEC A"
               src="https://cdn-expa.aiesec.org/assets/images/favicon-white.png"

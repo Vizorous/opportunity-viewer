@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { Container, Media } from "react-bootstrap";
-import { useResponsiveContext } from "../../App";
 import LikeButton from "../../components/LikeButton/LikeButton";
+import { useResponsive } from "../../utils/customHooks";
 
 const responsiveResizes = (isMobile: boolean) => {
   const containerP: string = isMobile ? "p-2" : "p-3";
@@ -16,7 +16,7 @@ interface OppCardProps {
   setFavorited: Function;
 }
 export default function OppCard({ favorited, setFavorited }: OppCardProps) {
-  const { isXs: isMobile } = useResponsiveContext();
+  const { isXS: isMobile } = useResponsive();
   const { containerP, textContainerP, textM, textW } = useMemo(
     () => responsiveResizes(isMobile),
     [isMobile]
