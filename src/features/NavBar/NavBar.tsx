@@ -4,25 +4,35 @@ import { useResponsive } from "../../utils/customHooks";
 
 import Search from "../Search/Search";
 
-const responsiveResizes = (isLg: boolean) => {
-  const navWidth: string = isLg ? "w-100" : "w-85";
-  const searchWidth: string = isLg ? "w-65" : "w-40";
-  const brandWidth: string = isLg ? "w-10 mr-0" : "w-25";
-  const collapseWidth: string = isLg ? "mw-10" : "mw-25";
-  return { navWidth, searchWidth, brandWidth, collapseWidth };
+const responsiveResizes = (
+  isLG: boolean,
+  isXS: boolean,
+  isSmallAF: boolean
+) => {
+  const navWidth: string = isLG ? "w-100" : "w-85";
+  const searchWidth: string = isLG ? "w-70" : "w-40";
+  const brandWidth: string = isLG ? "w-10 mr-0" : "w-25";
+  const collapseWidth: string = isLG ? "mw-10" : "mw-25";
+  const navBarP: string = isSmallAF
+    ? "shadow-sm px-1"
+    : isXS
+    ? "shadow-sm px-2"
+    : "shadow-sm";
+  return { navWidth, searchWidth, brandWidth, collapseWidth, navBarP };
 };
 
 export default function NavBar(): ReactElement {
-  const { isLG } = useResponsive();
+  const { isLG, isXS, isSmallAF } = useResponsive();
   const {
     navWidth,
     brandWidth,
     collapseWidth,
     searchWidth,
-  } = responsiveResizes(isLG);
+    navBarP,
+  } = responsiveResizes(isLG, isXS, isSmallAF);
 
   return (
-    <Navbar bg="white" expand="lg" fixed="top" className="shadow-sm">
+    <Navbar bg="white" expand="lg" fixed="top" className={navBarP}>
       <Container className={navWidth} fluid>
         <Navbar.Brand
           href="#home"
