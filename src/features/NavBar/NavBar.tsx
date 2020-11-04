@@ -37,7 +37,7 @@ export default function NavBar(): ReactElement {
             <img
               alt="AIESEC A"
               src="https://cdn-expa.aiesec.org/assets/images/favicon-white.png"
-              height="46px"></img>
+              height="40px"></img>
           )}
         </Navbar.Brand>
         {/* <Form inline className={`${searchWidth} justify-content-center`}>

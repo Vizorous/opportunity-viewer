@@ -22,12 +22,6 @@ function App() {
             <OppCard
               favorited={favorited}
               setFavorited={setFavorited}></OppCard>
-            {/* <div
-                style={{
-                  height: "1000vh",
-                  width: "10vw",
-                  backgroundColor: "red",
-                }}></div> */}
           </Container>
         </div>
       </div>

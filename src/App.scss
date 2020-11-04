@@ -1,6 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 @import "custom";
-
+html {
+  font-size: 14px;
+}
 .App {
   font-family: Lato;
 }
