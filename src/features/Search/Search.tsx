@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default function Search({ searchWidth }: Props): ReactElement {
-  const buttonStyle: string = `bg-white text-muted border-0 shadow-none white-button-click search-btn w-100`;
+  const buttonStyle: string = `bg-white text-muted border-0 shadow-none white-button-click search-btn w-100 text-truncate`;
 
   return (
     <div className={`${searchWidth} ml-2`}>
