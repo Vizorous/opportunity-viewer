@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
-import { Button, Container, Media } from "react-bootstrap";
+import React, { useMemo } from "react";
+import { Container, Media } from "react-bootstrap";
 import { useResponsiveContext } from "../../App";
 import LikeButton from "../../components/LikeButton/LikeButton";
 
@@ -16,7 +16,7 @@ interface OppCardProps {
   setFavorited: Function;
 }
 export default function OppCard({ favorited, setFavorited }: OppCardProps) {
-  const { isMobile } = useResponsiveContext();
+  const { isXs: isMobile } = useResponsiveContext();
   const { containerP, textContainerP, textM, textW } = useMemo(
     () => responsiveResizes(isMobile),
     [isMobile]

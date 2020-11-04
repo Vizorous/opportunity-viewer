@@ -1,10 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
-import { useResponsiveContext } from "../../App";
-enum variantColorEnum {
-  outlineDanger = "outline-danger",
-  danger = "danger",
-}
+import React from "react";
 
 interface LikeButtonProps {
   className?: string;
@@ -16,16 +10,6 @@ export default function LikeButton({
   setFavorited,
   className,
 }: LikeButtonProps) {
-  const { isMobile } = useResponsiveContext();
-  const [colorChange, setColorChange] = useState("transparent");
-  useEffect(() => {
-    if (favorited === true) {
-      setColorChange("red");
-    } else {
-      setColorChange("transparent");
-    }
-  }, [favorited]);
-
   return (
     <div
       onClick={() => setFavorited(!favorited)}
@@ -35,12 +19,5 @@ export default function LikeButton({
         {!favorited && <i className="far fa-heart border-heart"></i>}
       </div>
     </div>
-    // <Button
-    //   className={`${className} like-btn`}
-    //   variant={variantColor}
-    //   onClick={() => setFavorited(!favorited)}>
-    //   {favorited && <i className="fas fa-heart"></i>}
-    //   {!favorited && <i className="far fa-heart"></i>}
-    // </Button>
   );
 }

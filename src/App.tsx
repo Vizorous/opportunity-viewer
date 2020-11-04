@@ -1,43 +1,49 @@
 import React, { useContext, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
-import "./App.css";
+import "./App.scss";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import OppCard from "./features/OppCard/OppCard";
 import { Container } from "react-bootstrap";
-import NavBar from "./components/NavBar";
+import NavBar from "./features/NavBar/NavBar";
 const client = new ApolloClient({
   uri: "https://48p1r2roz4.sse.codesandbox.io",
   cache: new InMemoryCache(),
 });
 interface IResponsiveContext {
-  isMobile: boolean;
+  isXs: boolean;
+  isLg: boolean;
 }
 export const ResponsiveContext = React.createContext<IResponsiveContext>({
-  isMobile: false,
+  isXs: false,
+  isLg: false,
 });
 export const useResponsiveContext = () => useContext(ResponsiveContext);
 
 function App() {
   const [favorited, setFavorited] = useState(false);
-  const isMobile: boolean = useMediaQuery({ maxWidth: 576 });
+  const isXs: boolean = useMediaQuery({ maxWidth: 576 });
+  const isLg: boolean = useMediaQuery({ maxWidth: 992 });
 
   return (
     <ApolloProvider client={client}>
-      <ResponsiveContext.Provider value={{ isMobile }}>
+      <ResponsiveContext.Provider value={{ isXs: isXs, isLg: isLg }}>
         <div>
           <div className="App">
             <NavBar></NavBar>
-            <Container fluid="md" className="p-3">
+            <Container
+              fluid="md"
+              className="p-3"
+              style={{ marginTop: "100px" }}>
               <OppCard
                 favorited={favorited}
                 setFavorited={setFavorited}></OppCard>
-              <div
+              {/* <div
                 style={{
                   height: "1000vh",
                   width: "10vw",
                   backgroundColor: "red",
-                }}></div>
+                }}></div> */}
             </Container>
           </div>
         </div>

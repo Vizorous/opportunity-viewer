@@ -1,3 +1,6 @@
+@import "~bootstrap/scss/bootstrap";
+@import "custom";
+
 .App {
   font-family: Lato;
 }
@@ -5,23 +8,31 @@
 .f14 {
   font-size: 14px;
 }
-.navbar__toggle {
-  /*outline: none;
-  */
-  background-color: #fff;
-  transition: all 0.2s ease;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
+.mw-25 {
+  max-width: 25% !important;
 }
+.white-button-click {
+  background-color: #fff;
+  transition: all 0.1 ease;
+  -webkit-transition: all 0.1 ease;
+  -moz-transition: all 0.1 ease;
+  -ms-transition: all 0.1 ease;
+  -o-transition: all 0.1 ease;
+}
+
+.search-btn:hover {
+  background-color: #f7f7f7 !important;
+}
+
+.white-button-click:active {
+  background-color: #e8e8e8 !important;
+}
+
 .navbar__toggle:focus {
   outline: none;
 }
-.navbar__toggle:active {
-  background-color: #f7f7f7;
-}
-.navbar__toggle:active::after {
+
+.white-button-click:active::after {
   background-color: #fff;
 }
 
