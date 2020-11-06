@@ -11,13 +11,17 @@
     "@types/node": "^12.12.62",
     "@types/react": "^16.9.49",
     "@types/react-bootstrap": "^0.32.24",
+    "@types/react-datepicker": "^3.1.1",
     "@types/react-dom": "^16.9.9",
     "@types/react-responsive": "^8.0.2",
     "bootstrap": "^4.5.3",
+    "date-fns": "^2.16.1",
+    "enzyme-to-json": "^3.6.1",
     "graphql": "^15.4.0",
     "node-sass": "npm:sass@^1.28.0",
     "react": "^16.14.0",
     "react-bootstrap": "^1.4.0",
+    "react-datepicker": "^3.3.0",
     "react-dom": "^16.14.0",
     "react-responsive": "^8.1.0",
     "react-scripts": "3.4.3",
@@ -36,6 +40,11 @@
       "react-app/jest"
     ]
   },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -48,5 +57,11 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/enzyme": "^3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "react-test-renderer": "^17.0.1"
+  }
 }

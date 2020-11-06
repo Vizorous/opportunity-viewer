@@ -1,13 +1,44 @@
 @import "~bootstrap/scss/bootstrap";
 @import "custom";
+@import "~react-datepicker/dist/react-datepicker.css";
 html {
-  font-size: 14px;
+  font-size: 14px !important;
 }
-
-.App {
-  font-family: Lato;
+.App *:not(.fa, .far, .fas) {
+  font-family: Lato !important;
 }
-
+.react-datepicker__day--selected {
+  background-color: #037ef3 !important;
+}
+.react-datepicker__input-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.dropdown-item-clear {
+  @extend .dropdown-item;
+  color: $danger;
+}
+.dropdown-item-clear.disabled {
+  @extend .dropdown-item;
+  color: $danger;
+  opacity: 0.65;
+}
+.dropdown-item-clear:active {
+  @extend .dropdown-item;
+  color: white !important;
+  background-color: $danger;
+}
+.dropdown-item-clear:hover {
+  @extend .dropdown-item;
+  color: $danger !important;
+}
+.dropdown-item-clear:hover:active {
+  @extend .dropdown-item;
+  color: $white !important;
+  background-color: $danger;
+}
 .f16 {
   font-size: 16px !important;
 }
@@ -18,15 +49,24 @@ html {
 .mw-25 {
   max-width: 25% !important;
 }
-.white-button-click {
-  background-color: #fff;
-  transition: all 0.1 ease;
-  -webkit-transition: all 0.1 ease;
-  -moz-transition: all 0.1 ease;
-  -ms-transition: all 0.1 ease;
-  -o-transition: all 0.1 ease;
+.dropdown-override.show {
+  opacity: 1 !important;
 }
 
+.dropdown-override {
+  @extend.dropdown-menu;
+  display: block !important;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+  -webkit-transition: opacity 0.1s linear;
+  -moz-transition: opacity 0.1s linear;
+  -ms-transition: opacity 0.1s linear;
+  -o-transition: opacity 0.1s linear;
+}
+
+.search-btn {
+  @extend .white-button-click;
+}
 .search-btn:hover {
   background-color: #f7f7f7 !important;
 }
@@ -39,8 +79,16 @@ html {
   outline: none;
 }
 
-.white-button-click:active::after {
+// .white-button-click:active {
+//   background-color: #fff;
+// }
+.white-button-click {
   background-color: #fff;
+  transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
 }
 
 .opp-card {
@@ -151,4 +199,21 @@ html {
 }
 .w-95 {
   width: 95%;
+}
+.w-97 {
+  width: 97%;
+}
+.w-31 {
+  width: 31% !important;
+}
+.mw-10 {
+  max-width: 10% !important;
+}
+.w-3 {
+  min-width: 3% !important;
+  width: 3% !important;
+}
+.w-28 {
+  width: 28% !important;
+  min-width: 28% !important;
 }

@@ -47,7 +47,7 @@ export default function OppCard({ favorited, setFavorited }: OppCardProps) {
           </p>
           <p className={`${textM} ${textW} ${textSize}`}>
             Some descrption here fdssfds sdfgdsfsf sdf sdf sf sf sdsd f fsd fdsf
-            sfd s s fs fds fs fs fs fsd fs fd sf sdf sdfs d fs f sf ds fs df{" "}
+            sfd s s fs fds fs fs fs fsd fs fd sf sdf sdfs d fs f sf ds fs df
           </p>
           <div className="d-flex justify-content-between">
             <p className={`${textM} text-muted `}>Some other Details</p>
