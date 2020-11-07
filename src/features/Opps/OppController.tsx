@@ -17,7 +17,7 @@ export default function OppController(): ReactElement {
   const { isVisible, visibilityRect } = useVisibilitySensor(
     infiniteScrollSpinner,
     {
-      intervalCheck: false,
+      intervalCheck: true,
       scrollCheck: true,
       resizeCheck: true,
     }
