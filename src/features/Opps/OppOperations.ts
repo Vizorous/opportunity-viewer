@@ -56,7 +56,7 @@ export const passedVariables = (startDate: Date, duration: DurationKeys | null, 
 
   return {
     "page": 1,
-    "per_page": 10000,
+    "per_page": 10,
     "smart_search": true,
     "filters": {
       'earliest_start_date': {

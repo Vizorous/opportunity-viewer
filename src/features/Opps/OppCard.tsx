@@ -47,7 +47,7 @@ export default function OppCard({
     () => responsiveResizes(isMobile),
     [isMobile]
   );
-  console.log(ProgramTypes.keys[program]);
+  // console.log(ProgramTypes.keys[program]);
 
   return (
     <Container className={` ${containerP} opp-card rounded `}>
@@ -80,7 +80,7 @@ export default function OppCard({
               {applicantsCount} Applicants
             </p>
           </div>
-          <p className={`${textM} text-muted f12`}>
+          <p className={`${textM} text-muted f12 ${program}`}>
             {ProgramTypes.keys[program]?.programName}
           </p>
         </Media.Body>

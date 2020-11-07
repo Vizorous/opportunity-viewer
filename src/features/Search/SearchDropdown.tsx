@@ -31,7 +31,7 @@ export default function SearchDropdown({
   return (
     <Dropdown as={ButtonGroup} className={`${className} w-28`}>
       <Dropdown.Toggle
-        bsPrefix={`${buttonStyle} ${currentValue || "text-muted"} `}>
+        bsPrefix={`${buttonStyle} ${currentValue ? "" : "text-muted"} `}>
         {currentType?.keys[currentValue as ProgramKeys | DurationKeys]?.title ||
           `Select ${type}`}
       </Dropdown.Toggle>

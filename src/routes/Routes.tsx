@@ -7,6 +7,7 @@ export default function Routes(): ReactElement {
     <>
       <NavBar></NavBar>
       <OppController></OppController>
+      <div style={{ width: "90%", height: "20vh" }}></div>
     </>
   );
 }
