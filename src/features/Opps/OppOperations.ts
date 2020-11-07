@@ -1,6 +1,8 @@
 import { gql } from "@apollo/client";
 import { format } from "date-fns";
 import { DurationKeys, DurationTypes, ProgramKeys, ProgramTypes } from "../Search/SearchTypes";
+
+
 export const getAllOpportunities = gql`
 query GetAllOpportunitiesQuery(
     $page: Int, $per_page: Int, 
@@ -48,14 +50,14 @@ query GetAllOpportunitiesQuery(
     title
   }
 `
-export const passedVariables = (startDate: Date, duration: DurationKeys | null, program: ProgramKeys | null) => {
+export const passedVariables = (startDate: Date, duration: DurationKeys | null, program: ProgramKeys | null, page?: number) => {
   const date = format(startDate, 'yyyy-L-d')
   const durationVal = (duration) ? DurationTypes.keys[duration as DurationKeys].id : undefined
   const programVal = (program) ? ProgramTypes.keys[program as ProgramKeys].id : undefined
   // console.log('updated');
 
   return {
-    "page": 1,
+    "page": page ? page : 1,
     "per_page": 10,
     "smart_search": true,
     "filters": {

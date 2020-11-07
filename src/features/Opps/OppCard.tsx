@@ -1,9 +1,16 @@
+import { useReactiveVar } from "@apollo/client";
 import { string } from "joi";
 import React, { useMemo, useState } from "react";
 import { Container, Media } from "react-bootstrap";
 import { Url } from "url";
 import LikeButton from "../../components/LikeButton/LikeButton";
 import { useResponsive } from "../../utils/customHooks";
+import {
+  setEditDescription,
+  setEditId,
+  setEditTitle,
+  setModalShow,
+} from "../EditModal/EditModalOperations";
 import {
   DurationKeys,
   DurationTypes,
@@ -41,16 +48,25 @@ export default function OppCard({
   program,
   companyName,
 }: OppCardProps) {
+  const setEditItems = (id: number, title: string, description: string) => {
+    setEditId(id);
+    setEditTitle(title);
+    setEditDescription(description);
+    setModalShow(true);
+  };
+
   const [favorited, setFavorited] = useState(false);
+
   const { isXS: isMobile } = useResponsive();
   const { containerP, textContainerP, textM, textW, textSize } = useMemo(
     () => responsiveResizes(isMobile),
     [isMobile]
   );
-  // console.log(ProgramTypes.keys[program]);
 
   return (
-    <Container className={` ${containerP} opp-card rounded `}>
+    <Container
+      className={` ${containerP} opp-card rounded `}
+      onClick={() => setEditItems(id, title, description)}>
       <LikeButton
         className="opp-card__save-btn"
         favorited={favorited}

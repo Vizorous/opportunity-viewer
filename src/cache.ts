@@ -20,6 +20,26 @@ export const cache: InMemoryCache = new InMemoryCache({
                     read() {
                         return startDateVar();
                     },
+                },
+                modalShow: {
+                    read() {
+                        return modalShowVar();
+                    }
+                },
+                editTitle: {
+                    read() {
+                        return editTitleVar();
+                    }
+                },
+                editId: {
+                    read() {
+                        return editIdVar();
+                    }
+                },
+                editDescription: {
+                    read() {
+                        return editDescriptionVar();
+                    }
                 }
             }
         }
@@ -39,4 +59,16 @@ export const durationVar: ReactiveVar<DurationKeys | null> = makeVar<DurationKey
 );
 export const startDateVar: ReactiveVar<Date> = makeVar<Date>(
     new Date()
+);
+export const modalShowVar: ReactiveVar<boolean> = makeVar<boolean>(
+    false
+);
+export const editTitleVar: ReactiveVar<string | null> = makeVar<string | null>(
+    null
+);
+export const editDescriptionVar: ReactiveVar<string | null> = makeVar<string | null>(
+    null
+);
+export const editIdVar: ReactiveVar<number | null> = makeVar<number | null>(
+    null
 );
