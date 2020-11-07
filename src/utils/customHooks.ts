@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { useMediaQuery } from 'react-responsive'
 
 interface IUseResponsive {
@@ -15,3 +16,10 @@ export const useResponsive = (): IUseResponsive => {
 // export const useLg = (): boolean => {
 //     return isLg
 // }
+export function usePrevious(value) {
+    const ref = useRef();
+    useEffect(() => {
+        ref.current = value;
+    });
+    return ref.current;
+}

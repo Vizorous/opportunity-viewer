@@ -1,5 +1,5 @@
-import { gql, useMutation, useReactiveVar } from "@apollo/client";
-import React, { ReactElement, useEffect, useState } from "react";
+import { useMutation, useReactiveVar } from "@apollo/client";
+import React, { ReactElement, useState } from "react";
 import {
   editDescriptionVar,
   editIdVar,
@@ -19,7 +19,7 @@ import produce from "immer";
 
 interface Props {}
 
-export default function EditModalContainer({}: Props): ReactElement {
+export default function EditModalContainer(): ReactElement {
   const [isLoading, setLoading] = useState(false);
   const modalShow = useReactiveVar(modalShowVar);
   const editId = useReactiveVar(editIdVar);
@@ -42,7 +42,6 @@ export default function EditModalContainer({}: Props): ReactElement {
         opportunity: { description: editDescription, title: editTitle },
       },
       update: async (cache, { data }) => {
-        console.log(data);
         try {
           const currentData: any = await cache.readQuery<
             typeof getAllOpportunities
@@ -63,7 +62,6 @@ export default function EditModalContainer({}: Props): ReactElement {
               x.allOpportunity.data[id].title = editTitle;
             }),
           });
-          console.log(currentData);
         } catch (error) {
           console.log(error);
         }
@@ -71,7 +69,6 @@ export default function EditModalContainer({}: Props): ReactElement {
     });
     setModalShow(false);
     setLoading(false);
-    // console.log("test");
   };
 
   return (

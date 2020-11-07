@@ -12,7 +12,11 @@ export default function LikeButton({
 }: LikeButtonProps) {
   return (
     <div
-      onClick={() => setFavorited(!favorited)}
+      onClick={(event: any) => {
+        event.cancelBubble = true;
+        if (event.stopPropagation) event.stopPropagation();
+        setFavorited(!favorited);
+      }}
       className={`${className} like-btn d-flex align-items-center justify-content-center`}>
       <div className="heart-container">
         {favorited && <i className="fas fa-heart solid-heart"></i>}

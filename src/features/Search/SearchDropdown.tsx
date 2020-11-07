@@ -26,7 +26,6 @@ export default function SearchDropdown({
   const type = useRef(currentType === ProgramTypes ? "program" : "duration")
     .current;
   const keys = currentType.keys;
-  // console.log(currentValue);
   const onClear = (val: string) => onDropdownChange(null);
   return (
     <Dropdown as={ButtonGroup} className={`${className} w-28`}>

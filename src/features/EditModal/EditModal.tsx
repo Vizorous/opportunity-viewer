@@ -1,7 +1,5 @@
-import React, { ChangeEvent, ReactElement } from "react";
-import { FormControl } from "react-bootstrap";
+import React, { ReactElement } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { TransitionCallbacks } from "react-bootstrap/esm/helpers";
 
 interface Props {
   setEditTitle: Function;

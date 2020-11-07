@@ -1,10 +1,8 @@
-import { NetworkStatus, useQuery, useReactiveVar } from "@apollo/client";
-import Joi from "joi";
+import { useQuery, useReactiveVar } from "@apollo/client";
 import React, { ReactElement, useEffect, useMemo, useRef } from "react";
 import { Container } from "react-bootstrap";
 import { durationVar, programVar, startDateVar } from "../../cache";
 import { useResponsive } from "../../utils/customHooks";
-import OppCard from "./OppCard";
 import OppContainer from "./OppContainer";
 import { getAllOpportunities, passedVariables } from "./OppOperations";
 import { dataSchema } from "./OppTypes";
@@ -14,14 +12,11 @@ interface Props {}
 
 export default function OppController(): ReactElement {
   const infiniteScrollSpinner = useRef(null);
-  const { isVisible, visibilityRect } = useVisibilitySensor(
-    infiniteScrollSpinner,
-    {
-      intervalCheck: true,
-      scrollCheck: true,
-      resizeCheck: true,
-    }
-  );
+  const { isVisible } = useVisibilitySensor(infiniteScrollSpinner, {
+    intervalCheck: true,
+    scrollCheck: true,
+    resizeCheck: true,
+  });
   const { isLG, isXS } = useResponsive();
   const duration = useReactiveVar(durationVar);
   const program = useReactiveVar(programVar);
@@ -39,25 +34,20 @@ export default function OppController(): ReactElement {
       notifyOnNetworkStatusChange: true,
     }
   );
-  // console.log(data, "sdsd");
 
   const dataArray = data?.allOpportunity?.data;
   const validatedDataArray = dataSchema.validate(dataArray, {
     stripUnknown: true,
   });
   const paging = data?.allOpportunity?.paging;
-  // console.log(dataArray, validatedDataArray, paging);
   const currentPage = paging?.current_page as number;
   const totalPages = paging?.total_pages as number;
 
   useEffect(() => {
     if (isVisible === true) {
-      console.log(currentPage + 1);
       fetchMore({
         variables: { page: currentPage + 1 },
         updateQuery: (prevResult, { fetchMoreResult }) => {
-          console.log(prevResult);
-          console.log(fetchMoreResult);
           fetchMoreResult.allOpportunity.data = [
             ...prevResult.allOpportunity.data,
             ...fetchMoreResult.allOpportunity.data,

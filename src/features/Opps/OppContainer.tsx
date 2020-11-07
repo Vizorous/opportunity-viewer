@@ -21,7 +21,6 @@ export default function OppContainer({
   data,
   error,
 }: Props): ReactElement {
-  // console.log(data);
   if (error) {
     console.log(error);
     return <Alert variant="danger">An error has occured! Please refresh</Alert>;

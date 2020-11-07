@@ -1,8 +1,5 @@
-import { useReactiveVar } from "@apollo/client";
-import { string } from "joi";
 import React, { useMemo, useState } from "react";
 import { Container, Media } from "react-bootstrap";
-import { Url } from "url";
 import LikeButton from "../../components/LikeButton/LikeButton";
 import { useResponsive } from "../../utils/customHooks";
 import {
@@ -11,11 +8,7 @@ import {
   setEditTitle,
   setModalShow,
 } from "../EditModal/EditModalOperations";
-import {
-  DurationKeys,
-  DurationTypes,
-  ProgramTypes,
-} from "../Search/SearchTypes";
+import { DurationTypes, ProgramTypes } from "../Search/SearchTypes";
 
 const responsiveResizes = (isMobile: boolean) => {
   const containerP: string = isMobile ? "p-2" : "p-3";

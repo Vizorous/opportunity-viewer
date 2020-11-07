@@ -54,7 +54,6 @@ export const passedVariables = (startDate: Date, duration: DurationKeys | null, 
   const date = format(startDate, 'yyyy-L-d')
   const durationVal = (duration) ? DurationTypes.keys[duration as DurationKeys].id : undefined
   const programVal = (program) ? ProgramTypes.keys[program as ProgramKeys].id : undefined
-  // console.log('updated');
 
   return {
     "page": page ? page : 1,

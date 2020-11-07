@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow, ShallowWrapper, mount } from "enzyme";
 import Search from "./Search";
+import { ButtonGroup } from "react-bootstrap";
 
 describe("Search", () => {
   it("w-70 Search", () => {
@@ -14,10 +15,3 @@ describe("Search", () => {
     expect(wrapper.find(".search-wrapper").hasClass("w-40")).toEqual(true);
   });
 });
-// describe("Search", () => {
-//   it("w40 Search", () => {
-//     const component = shallow(<Search searchWidth="w-40" />);
-
-//     expect(component).toMatchSnapshot();
-//   });
-// });
