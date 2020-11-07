@@ -2,12 +2,18 @@ import React, { ReactElement, useRef } from "react";
 import { ButtonGroup, Dropdown } from "react-bootstrap";
 import { SelectCallback } from "react-bootstrap/esm/helpers";
 import { enumKeys } from "../../utils/helpers";
-import { ProgramTypes, DurationTypes } from "./SearchTypes";
+import {
+  ProgramTypes,
+  DurationTypes,
+  ProgramKeys,
+  DurationKeys,
+} from "./SearchTypes";
 interface Props {
-  currentValue: ProgramTypes | DurationTypes | undefined;
+  currentValue: ProgramKeys | DurationKeys | undefined;
   currentType: typeof ProgramTypes | typeof DurationTypes;
-  onDropdownChange?: (val: string) => void;
+  onDropdownChange: Function;
   className?: string;
+  buttonStyle?: string;
 }
 
 export default function SearchDropdown({
@@ -15,43 +21,40 @@ export default function SearchDropdown({
   currentValue,
   currentType,
   onDropdownChange,
+  buttonStyle,
 }: Props): ReactElement {
-  const buttonStyle: string = `btn btn-light bg-white ${
-    currentValue || "text-muted"
-  } border-0 shadow-none search-btn w-100 mw-100 text-truncate`;
   const type = useRef(currentType === ProgramTypes ? "program" : "duration")
     .current;
+  const keys = currentType.keys;
+  // console.log(currentValue);
+  const onClear = (val: string) => onDropdownChange(null);
   return (
     <Dropdown as={ButtonGroup} className={`${className} w-28`}>
-      <Dropdown.Toggle bsPrefix={buttonStyle}>
-        {currentValue || `Select ${type}`}
+      <Dropdown.Toggle
+        bsPrefix={`${buttonStyle} ${currentValue || "text-muted"} `}>
+        {currentType?.keys[currentValue as ProgramKeys | DurationKeys]?.title ||
+          `Select ${type}`}
       </Dropdown.Toggle>
       <Dropdown.Menu bsPrefix="dropdown-override">
-        {enumKeys(currentType).map((key: string) => {
-          if (key === "clear") {
-            return (
-              <React.Fragment key={`${key} fragment`}>
-                <Dropdown.Divider />
-                <Dropdown.Item
-                  bsPrefix={"dropdown-item-clear"}
-                  disabled={!currentValue}
-                  eventKey={key}
-                  key={key}
-                  onSelect={onDropdownChange as SelectCallback}>
-                  {currentType[key]}
-                </Dropdown.Item>
-              </React.Fragment>
-            );
-          }
+        {enumKeys(keys).map((value: ProgramKeys | DurationKeys) => {
           return (
             <Dropdown.Item
-              eventKey={key}
-              key={key}
+              eventKey={value}
+              key={value}
               onSelect={onDropdownChange as SelectCallback}>
-              {currentType[key]}
+              {currentType?.keys[value]?.title}
             </Dropdown.Item>
           );
         })}
+        <Dropdown.Divider />
+        <Dropdown.Item
+          bsPrefix={"dropdown-item-clear"}
+          disabled={!currentValue}
+          eventKey={"clear"}
+          key={"clear"}
+          onSelect={onClear as SelectCallback}>
+          Clear Selection
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

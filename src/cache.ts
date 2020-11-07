@@ -1,5 +1,5 @@
 import { InMemoryCache, ReactiveVar, makeVar } from "@apollo/client";
-import { DurationTypes, ProgramTypes } from "./features/Search/SearchTypes";
+import { DurationKeys, ProgramKeys } from "./features/Search/SearchTypes";
 
 
 export const cache: InMemoryCache = new InMemoryCache({
@@ -31,12 +31,12 @@ export const cache: InMemoryCache = new InMemoryCache({
  */
 
 
-export const programVar: ReactiveVar<ProgramTypes | null> = makeVar<ProgramTypes | null>(
+export const programVar: ReactiveVar<ProgramKeys | null> = makeVar<ProgramKeys | null>(
     null
 );
-export const durationVar: ReactiveVar<DurationTypes | null> = makeVar<DurationTypes | null>(
+export const durationVar: ReactiveVar<DurationKeys | null> = makeVar<DurationKeys | null>(
     null
 );
-export const startDateVar: ReactiveVar<Date | null> = makeVar<Date | null>(
+export const startDateVar: ReactiveVar<Date> = makeVar<Date>(
     new Date()
 );

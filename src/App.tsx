@@ -1,27 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./App.scss";
 import { ApolloClient, ApolloProvider } from "@apollo/client";
-import OppCard from "./features/OppCard/OppCard";
-import { Container } from "react-bootstrap";
-import NavBar from "./features/NavBar/NavBar";
 import { cache } from "./cache";
+import Routes from "./routes/Routes";
 const client = new ApolloClient({
-  uri: "https://48p1r2roz4.sse.codesandbox.io",
+  uri:
+    "https://api-staging.aiesec.org/graphql?access_token=dd0df21c8af5d929dff19f74506c4a8153d7acd34306b9761fd4a57cfa1d483c",
   cache: cache,
   connectToDevTools: true,
 });
 
 function App() {
-  const [favorited, setFavorited] = useState(false);
-
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <NavBar></NavBar>
-        <Container fluid="md" className="p-3" style={{ marginTop: "100px" }}>
-          <OppCard favorited={favorited} setFavorited={setFavorited}></OppCard>
-        </Container>
+      <div className="app">
+        <Routes></Routes>
       </div>
     </ApolloProvider>
   );

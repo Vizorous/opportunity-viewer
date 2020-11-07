@@ -4,7 +4,10 @@
 html {
   font-size: 14px !important;
 }
-.App *:not(.fa, .far, .fas) {
+.app {
+  font-family: Lato !important;
+}
+.react-datepicker {
   font-family: Lato !important;
 }
 .react-datepicker__day--selected {
@@ -16,6 +19,23 @@ html {
   width: 100%;
   height: 100%;
 }
+
+.navbar__icons {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.navbar__longicons {
+  width: 185px;
+}
+
+.navbar__toggle {
+  @extend .navbar__icons;
+}
+.navbar__A {
+  @extend .navbar__icons;
+}
+
 .dropdown-item-clear {
   @extend .dropdown-item;
   color: $danger;
@@ -51,11 +71,13 @@ html {
 }
 .dropdown-override.show {
   opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .dropdown-override {
   @extend.dropdown-menu;
   display: block !important;
+  visibility: hidden !important;
   opacity: 0;
   transition: opacity 0.1s linear;
   -webkit-transition: opacity 0.1s linear;
@@ -93,9 +115,27 @@ html {
 
 .opp-card {
   position: relative;
+  transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+}
+
+.opp-card:hover {
+  background-color: #f7f7f7 !important;
+}
+.opp-card:active {
+  background-color: #e8e8e8 !important;
 }
 .opp-card__save-btn:focus {
   box-shadow: none !important;
+}
+.opp-card__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .opp-card__save-btn {

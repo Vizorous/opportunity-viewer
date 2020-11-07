@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import { durationVar, programVar, startDateVar } from "../../cache";
-import { DurationTypes, ProgramTypes } from "./SearchTypes";
+import { DurationKeys, ProgramKeys } from "./SearchTypes";
 export const getProgram = gql`
   query getProgram {
     program @client
@@ -24,16 +24,12 @@ export const getSearchOptions = gql`
     date @client
   }
 `
-export const setProgram = (val: string) => {
-  console.log(val)
-  if (val === 'clear') {
-    return programVar(null)
-  }
-  programVar(ProgramTypes[val])
+export const setProgram = (val: ProgramKeys | null) => {
+  programVar(val)
 }
 
-export const setDuration = (val: string) => {
-  durationVar(DurationTypes[val])
+export const setDuration = (val: DurationKeys | null) => {
+  durationVar(val)
 }
 
 export const setStartDate = (val: Date) => {

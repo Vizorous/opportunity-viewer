@@ -9,60 +9,63 @@ const responsiveResizes = (
   isXS: boolean,
   isSmallAF: boolean
 ) => {
-  const navWidth: string = isLG ? "w-100" : "w-85";
-  const searchWidth: string = isLG ? "w-70" : "w-40";
-  const brandWidth: string = isLG ? "w-10 mr-0" : "w-25";
-  const collapseWidth: string = isLG ? "mw-10" : "mw-25";
+  const navWidth: string = isLG ? "w-100 px-0" : "w-90 px-0";
+  const searchWidth: string = isLG ? "w-70" : "w-50";
+  const sideIconWidth: string = isLG ? "" : "flex-grow-0 navbar__longicons";
   const navBarP: string = isSmallAF
     ? "shadow-sm px-1"
-    : isXS
+    : isLG
     ? "shadow-sm px-2"
-    : "shadow-sm";
-  return { navWidth, searchWidth, brandWidth, collapseWidth, navBarP };
+    : "shadow-sm px-0";
+  return { navWidth, searchWidth, navBarP, sideIconWidth };
 };
 
 export default function NavBar(): ReactElement {
   const { isLG, isXS, isSmallAF } = useResponsive();
-  const {
-    navWidth,
-    brandWidth,
-    collapseWidth,
-    searchWidth,
-    navBarP,
-  } = responsiveResizes(isLG, isXS, isSmallAF);
+  const { navWidth, searchWidth, navBarP, sideIconWidth } = responsiveResizes(
+    isLG,
+    isXS,
+    isSmallAF
+  );
 
   return (
-    <Navbar bg="white" expand="lg" fixed="top" className={navBarP}>
-      <Container className={navWidth} fluid>
-        <Navbar.Brand
-          href="#home"
-          className={`${brandWidth} d-flex align-items-center`}>
-          {!isLG && (
+    <Navbar bg="white" expand="lg" fixed="top" className={`${navBarP} py-3`}>
+      <Container
+        className={`${navWidth} justify-content-around align-items-center`}
+        fluid>
+        {!isLG && (
+          <Navbar.Brand href="#home" className={`${sideIconWidth} m-0 p-0`}>
             <img
               alt="AIESEC logo"
               src="https://cdn-expa.aiesec.org/assets/images/aiesec_logo_black.svg"
               height="26px"></img>
-          )}
-          {isLG && (
+          </Navbar.Brand>
+        )}
+        {isLG && (
+          <Navbar.Brand href="#home" className="navbar__A m-0 p-0">
             <img
               alt="AIESEC A"
               src="https://cdn-expa.aiesec.org/assets/images/favicon-white.png"
               height="40px"></img>
-          )}
-        </Navbar.Brand>
+          </Navbar.Brand>
+        )}
         {/* <Form inline className={`${searchWidth} justify-content-center`}>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           {/* <Button variant="outline-success">Search</Button> 
         </Form> */}
         <Search searchWidth={searchWidth}></Search>
         <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
+          // aria-controls="basic-navbar-nav"
           className="border-0 p-2 navbar__toggle white-button-click"
         />
-        <Navbar.Collapse id={`basic-navbar-nav`} className={`${collapseWidth}`}>
+        <Navbar.Collapse id={`basic-navbar-nav`} className={`${sideIconWidth}`}>
           <Nav className="ml-auto">
-            <Nav.Link href="#home">Help</Nav.Link>
-            <Nav.Link href="#link">Log In</Nav.Link>
+            <Nav.Link href="#home" className="px-3">
+              Help
+            </Nav.Link>
+            <Nav.Link href="#link" className="px-3">
+              Log In
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

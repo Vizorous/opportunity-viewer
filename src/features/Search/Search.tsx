@@ -1,45 +1,32 @@
 import { format } from "date-fns";
-import React, { ReactElement, useState } from "react";
-import {
-  Button,
-  ButtonGroup,
-  Container,
-  DropdownButton,
-  Dropdown,
-} from "react-bootstrap";
+import React, { ReactElement } from "react";
+import { Button, ButtonGroup, Container } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import { DurationTypes, ProgramTypes } from "./SearchTypes";
 import SearchDropdown from "./SearchDropdown";
-import { setDuration, setProgram } from "./searchOperations";
+import { setDuration, setProgram, setStartDate } from "./searchOperations";
 import { useReactiveVar } from "@apollo/client";
-import { durationVar, programVar } from "../../cache";
+import { durationVar, programVar, startDateVar } from "../../cache";
 
 export type SearchProps = {
   searchWidth: string;
-  // currentProgram?: ProgramTypes | DurationTypes;
-  // setCurrentProgram?: Function;
-  // currentType: typeof ProgramTypes | typeof DurationTypes;
 };
 
 export default function Search({ searchWidth }: SearchProps): ReactElement {
-  const [startDate, setStartDate] = useState(new Date());
   const duration = useReactiveVar(durationVar);
+  const startDate = useReactiveVar(startDateVar);
   const program = useReactiveVar(programVar);
-  const dateButtonStyle: string = `btn btn-light bg-white border-0 shadow-none search-btn text-truncate w-100 rounded-0`;
+  const buttonStyle: string = `btn btn-light bg-white border-0 shadow-none search-btn w-100 text-truncate`;
   return (
-    <div className={`${searchWidth} ml-2 search-wrapper`}>
+    <div className={`${searchWidth} search-wrapper`}>
       <Container
         fluid="sm"
         className="search-btns__container border rounded p-0">
         <ButtonGroup
           aria-label="Search"
           className="search-btns__group w-100 mw-100">
-          {/* <Button
-            variant="light"
-            className={`search-btn__programmes ${buttonStyle}`}>
-            Left
-          </Button>   */}
           <SearchDropdown
+            buttonStyle={buttonStyle}
             currentType={ProgramTypes}
             currentValue={program || undefined}
             onDropdownChange={setProgram}
@@ -47,13 +34,13 @@ export default function Search({ searchWidth }: SearchProps): ReactElement {
           <div className="search-btn__divider py-2 text-muted w-3 text-center">
             •
           </div>
-
           <SearchDropdown
+            buttonStyle={buttonStyle}
             currentType={DurationTypes}
             currentValue={duration || undefined}
             onDropdownChange={setDuration}
             className="search-btn__duration"></SearchDropdown>
-          <div className="search-btn__divider py-2 m-auto text-muted w-3 text-center">
+          <div className="search-btn__divider py-2 text-muted w-3 text-center">
             •
           </div>
 
@@ -66,8 +53,8 @@ export default function Search({ searchWidth }: SearchProps): ReactElement {
               <Button
                 variant="light"
                 id="search-btn__start-date"
-                className={`${dateButtonStyle} h-100`}>
-                {format(startDate, "do MMM")}
+                className={`${buttonStyle} rounded-0 h-100`}>
+                {format(startDate as Date, "do MMM")}
               </Button>
             }
           />
