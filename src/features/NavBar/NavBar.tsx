@@ -19,8 +19,10 @@ const responsiveResizes = (
     : "shadow-sm px-0";
   return { navWidth, searchWidth, navBarP, sideIconWidth };
 };
-
-export default function NavBar(): ReactElement {
+interface Props {
+  isSearch: boolean;
+}
+export default function NavBar({ isSearch }: Props): ReactElement {
   const { isLG, isXS, isSmallAF } = useResponsive();
   const { navWidth, searchWidth, navBarP, sideIconWidth } = responsiveResizes(
     isLG,
@@ -31,10 +33,10 @@ export default function NavBar(): ReactElement {
   return (
     <Navbar bg="white" expand="lg" fixed="top" className={`${navBarP} py-3`}>
       <Container
-        className={`${navWidth} justify-content-around align-items-center`}
+        className={`${navWidth} justify-content-between align-items-center`}
         fluid>
         {!isLG && (
-          <Navbar.Brand href="#home" className={`${sideIconWidth} m-0 p-0`}>
+          <Navbar.Brand href="/" className={`${sideIconWidth} m-0 p-0`}>
             <img
               alt="AIESEC logo"
               src="https://cdn-expa.aiesec.org/assets/images/aiesec_logo_black.svg"
@@ -42,7 +44,7 @@ export default function NavBar(): ReactElement {
           </Navbar.Brand>
         )}
         {isLG && (
-          <Navbar.Brand href="#home" className="navbar__A m-0 p-0">
+          <Navbar.Brand href="/" className="navbar__A m-0 p-0">
             <img
               alt="AIESEC A"
               src="https://cdn-expa.aiesec.org/assets/images/favicon-white.png"
@@ -53,18 +55,24 @@ export default function NavBar(): ReactElement {
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           {/* <Button variant="outline-success">Search</Button> 
         </Form> */}
-        <Search searchWidth={searchWidth}></Search>
+        {isSearch ? <Search searchWidth={searchWidth}></Search> : null}
         <Navbar.Toggle
           // aria-controls="basic-navbar-nav"
           className="border-0 p-2 navbar__toggle white-button-click"
         />
         <Navbar.Collapse id={`basic-navbar-nav`} className={`${sideIconWidth}`}>
           <Nav className="ml-auto">
-            <Nav.Link href="#home" className="px-3">
-              Help
+            <Nav.Link
+              href="https://aiesec.org/search"
+              target="_blank"
+              className="px-3">
+              YOP
             </Nav.Link>
-            <Nav.Link href="#link" className="px-3">
-              Log In
+            <Nav.Link
+              href="https://expa.aiesec.org/"
+              target="_blank"
+              className="px-3">
+              EXPA
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -1,12 +1,10 @@
 import React, { ReactElement, useEffect } from "react";
-import EditModalContainer from "../features/EditModal/EditModalContainer";
-import NavBar from "../features/NavBar/NavBar";
 import OppController from "../features/Opps/OppController";
 import queryString from "query-string";
 import qs from "query-string";
 import { useHistory } from "react-router-dom";
 import { useReactiveVar } from "@apollo/client";
-import { durationVar, programVar, startDateVar } from "../cache";
+import { durationVar, programVar, setIsSearch, startDateVar } from "../cache";
 import {
   setDuration,
   setProgram,
@@ -15,12 +13,13 @@ import {
 import { format, parse } from "date-fns";
 import { isValidDate } from "../utils/helpers";
 import _ from "underscore";
-export default function Routes(props): ReactElement {
+export default function SearchRoute(props): ReactElement {
   const history = useHistory();
   const duration = useReactiveVar(durationVar);
   const program = useReactiveVar(programVar);
   const startDate = useReactiveVar(startDateVar);
   useEffect(() => {
+    setIsSearch(true);
     const values = queryString.parse(props.location.search);
     const programValue = values?.program ? values.program : null;
     const durationValue = values?.duration ? values.duration : null;
@@ -45,6 +44,9 @@ export default function Routes(props): ReactElement {
         setStartDate(date);
       }
     }
+    return () => {
+      setIsSearch(false);
+    };
   }, []);
   useEffect(() => {
     const query = {
@@ -60,10 +62,8 @@ export default function Routes(props): ReactElement {
   }, [program, duration, startDate]);
   return (
     <>
-      <NavBar></NavBar>
       <OppController></OppController>
-      <EditModalContainer></EditModalContainer>
-      <div style={{ width: "90%", height: "20vh" }}></div>
+      <div style={{ width: "90%", height: "20vh", alignSelf: "center" }}></div>
     </>
   );
 }

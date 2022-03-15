@@ -16,6 +16,7 @@
     "@types/react-dom": "^16.9.9",
     "@types/react-responsive": "^8.0.2",
     "@types/react-router-dom": "^5.1.6",
+    "axios": "^0.26.1",
     "bootstrap": "^4.5.3",
     "date-fns": "^2.16.1",
     "enzyme-to-json": "^3.6.1",

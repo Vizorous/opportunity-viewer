@@ -54,7 +54,7 @@ export default function Search({ searchWidth }: SearchProps): ReactElement {
                 variant="light"
                 id="search-btn__start-date"
                 className={`${buttonStyle} rounded-0 h-100`}>
-                {format(startDate as Date, "do MMM")}
+                {format(startDate as Date, "do MMM yy")}
               </Button>
             }
           />

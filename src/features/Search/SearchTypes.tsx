@@ -34,6 +34,7 @@ export type IPrograms = {
       id: Array<number>;
       title: string;
       programName: string;
+      link: string;
     };
   };
 };
@@ -43,13 +44,20 @@ export const ProgramTypes: IPrograms = {
     GV: {
       title: "Volunteer for a cause",
       programName: "Global Volunteer",
+      link: "global-volunteer",
       id: [7],
     },
     GTa: {
       title: "Intern for a company",
       programName: "Global Talent",
+      link: "global-talent",
       id: [2, 8],
     },
-    GTe: { title: "Teach abroad", id: [9], programName: "Global Teacher" },
+    GTe: {
+      title: "Teach abroad",
+      id: [9],
+      programName: "Global Teacher",
+      link: "global-teacher",
+    },
   },
 };
