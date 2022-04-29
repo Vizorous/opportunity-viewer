@@ -38,6 +38,11 @@ export const cache: InMemoryCache = new InMemoryCache({
 						return isSearchVar();
 					},
 				},
+				isFirstRender: {
+					read() {
+						return isFirstRenderVar();
+					},
+				},
 			},
 		},
 	},
@@ -53,10 +58,14 @@ export const startDateVar: ReactiveVar<Date> = makeVar<Date>(new Date());
 
 export const fullViewIdVar: ReactiveVar<number | null> = makeVar<number | null>(null);
 export const isSearchVar: ReactiveVar<boolean> = makeVar<boolean>(false);
+export const isFirstRenderVar: ReactiveVar<boolean> = makeVar<boolean>(true);
 export const errorVar: ReactiveVar<boolean> = makeVar<boolean>(false);
 export const setError = (val: boolean) => {
 	errorVar(val);
 };
 export const setIsSearch = (val: boolean) => {
 	isSearchVar(val);
+};
+export const setIsFirstRender = (val: boolean) => {
+	isFirstRenderVar(val);
 };

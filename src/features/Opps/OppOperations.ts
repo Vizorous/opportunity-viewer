@@ -93,6 +93,8 @@ export const passedVariables = (
 			},
 			[DurationTypes.name]: durationVal,
 			[ProgramTypes.name]: programVal,
+			sub_products: 55,
+			committee:221
 		},
 		sort: "relevance",
 	};
