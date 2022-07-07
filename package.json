@@ -1,70 +1,71 @@
 {
-  "name": "opportunity-viewer",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@apollo/client": "^3.2.5",
-    "@rooks/use-visibility-sensor": "^3.6.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.62",
-    "@types/react": "^16.9.49",
-    "@types/react-bootstrap": "^0.32.24",
-    "@types/react-datepicker": "^3.1.1",
-    "@types/react-dom": "^16.9.9",
-    "@types/react-responsive": "^8.0.2",
-    "@types/react-router-dom": "^5.1.6",
-    "axios": "^0.26.1",
-    "bootstrap": "^4.5.3",
-    "date-fns": "^2.16.1",
-    "enzyme-to-json": "^3.6.1",
-    "graphql": "^15.4.0",
-    "immer": "^7.0.14",
-    "joi": "^17.3.0",
-    "node-sass": "npm:sass@^1.28.0",
-    "query-string": "^6.13.7",
-    "react": "^16.14.0",
-    "react-bootstrap": "^1.4.0",
-    "react-datepicker": "^3.3.0",
-    "react-dom": "^16.14.0",
-    "react-responsive": "^8.1.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "typescript": "^3.9.7",
-    "underscore": "^1.11.0",
-    "web-vitals": "^0.2.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@types/enzyme": "^3.10.8",
-    "@types/enzyme-adapter-react-16": "^1.0.6",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5",
-    "react-test-renderer": "^17.0.1"
-  }
+	"name": "opportunity-viewer",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@apollo/client": "^3.2.5",
+		"@rooks/use-visibility-sensor": "^3.6.0",
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.5.0",
+		"@testing-library/user-event": "^7.2.1",
+		"@types/jest": "^24.9.1",
+		"@types/node": "^12.12.62",
+		"@types/react": "^16.9.49",
+		"@types/react-bootstrap": "^0.32.24",
+		"@types/react-datepicker": "^3.1.1",
+		"@types/react-dom": "^16.9.9",
+		"@types/react-responsive": "^8.0.2",
+		"@types/react-router-dom": "^5.1.6",
+		"axios": "^0.26.1",
+		"bootstrap": "^4.5.3",
+		"date-fns": "^2.16.1",
+		"enzyme-to-json": "^3.6.1",
+		"graphql": "^15.4.0",
+		"immer": "^7.0.14",
+		"joi": "^17.3.0",
+		"node-sass": "npm:sass@^1.28.0",
+		"query-string": "^6.13.7",
+		"react": "^16.14.0",
+		"react-bootstrap": "^1.4.0",
+		"react-datepicker": "^3.3.0",
+		"react-dom": "^16.14.0",
+		"react-responsive": "^8.1.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "3.4.3",
+		"typescript": "^3.9.7",
+		"underscore": "^1.11.0",
+		"web-vitals": "^0.2.4"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"postbuild": "firebase deploy"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@types/enzyme": "^3.10.8",
+		"@types/enzyme-adapter-react-16": "^1.0.6",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.5",
+		"react-test-renderer": "^17.0.1"
+	}
 }

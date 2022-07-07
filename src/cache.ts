@@ -20,6 +20,11 @@ export const cache: InMemoryCache = new InMemoryCache({
 						return startDateVar();
 					},
 				},
+				entity: {
+					read() {
+						return entityVar();
+					},
+				},
 
 				fullViewId: {
 					read() {
@@ -57,6 +62,7 @@ export const durationVar: ReactiveVar<DurationKeys | null> = makeVar<DurationKey
 export const startDateVar: ReactiveVar<Date> = makeVar<Date>(new Date());
 
 export const fullViewIdVar: ReactiveVar<number | null> = makeVar<number | null>(null);
+export const entityVar: ReactiveVar<number | null> = makeVar<number | null>(null);
 export const isSearchVar: ReactiveVar<boolean> = makeVar<boolean>(false);
 export const isFirstRenderVar: ReactiveVar<boolean> = makeVar<boolean>(true);
 export const errorVar: ReactiveVar<boolean> = makeVar<boolean>(false);

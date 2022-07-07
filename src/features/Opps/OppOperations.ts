@@ -77,6 +77,7 @@ export const passedVariables = (
 	startDate: Date,
 	duration: DurationKeys | null,
 	program: ProgramKeys | null,
+	entity: number | null,
 	page?: number
 ) => {
 	const date = format(startDate, "yyyy-L-d");
@@ -93,8 +94,8 @@ export const passedVariables = (
 			},
 			[DurationTypes.name]: durationVal,
 			[ProgramTypes.name]: programVal,
-			sub_products: 55,
-			committee:221
+			// sub_products: 55,
+			committee: entity || 1623,
 		},
 		sort: "relevance",
 	};

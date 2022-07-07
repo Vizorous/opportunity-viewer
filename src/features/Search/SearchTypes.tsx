@@ -14,50 +14,50 @@
 
 export type DurationKeys = "short" | "medium" | "long";
 export type IDuration = {
-  name: string;
-  keys: { [key in DurationKeys]: { id: string; title: string } };
+	name: string;
+	keys: { [key in DurationKeys]: { id: string; title: string } };
 };
 
 export const DurationTypes: IDuration = {
-  name: "duration_type",
-  keys: {
-    short: { title: "6-12 Weeks", id: "short" },
-    medium: { title: "3-6 Months", id: "medium" },
-    long: { title: "6-8 Months", id: "long" },
-  },
+	name: "duration_type",
+	keys: {
+		short: { title: "6-12 Weeks", id: "short" },
+		medium: { title: "3-6 Months", id: "medium" },
+		long: { title: "6-8 Months", id: "long" },
+	},
 };
-export type ProgramKeys = "GV" | "GTa" | "GTe";
+export type ProgramKeys = "GTa" | "GTe";
 export type IPrograms = {
-  name: string;
-  keys: {
-    [key in ProgramKeys]: {
-      id: Array<number>;
-      title: string;
-      programName: string;
-      link: string;
-    };
-  };
+	name: string;
+	keys: {
+		[key in ProgramKeys]: {
+			id: Array<number>;
+			title: string;
+			programName: string;
+			link: string;
+		};
+	};
 };
 export const ProgramTypes: IPrograms = {
-  name: "programmes",
-  keys: {
-    GV: {
-      title: "Volunteer for a cause",
-      programName: "Global Volunteer",
-      link: "global-volunteer",
-      id: [7],
-    },
-    GTa: {
-      title: "Intern for a company",
-      programName: "Global Talent",
-      link: "global-talent",
-      id: [2, 8],
-    },
-    GTe: {
-      title: "Teach abroad",
-      id: [9],
-      programName: "Global Teacher",
-      link: "global-teacher",
-    },
-  },
+	name: "programmes",
+	keys: {
+		// GV: {
+		//   title: "Volunteer for a cause",
+		//   programName: "Global Volunteer",
+		//   link: "global-volunteer",
+		//   id: [7],
+		// },
+		GTa: {
+			title: "Intern for a company",
+			programName: "Global Talent",
+			link: "global-talent",
+			id: [2, 8],
+		},
+		GTe: {
+			title: "Teach abroad",
+			id: [9],
+			programName: "Global Teacher",
+			link: "global-teacher",
+		},
+	},
 };

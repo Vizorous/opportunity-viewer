@@ -1,7 +1,7 @@
 import { useQuery, useReactiveVar } from "@apollo/client";
 import React, { ReactElement, useEffect, useMemo, useRef } from "react";
 import { Container } from "react-bootstrap";
-import { durationVar, programVar, startDateVar } from "../../cache";
+import { durationVar, entityVar, programVar, startDateVar } from "../../cache";
 import { useResponsive } from "../../utils/customHooks";
 import OppContainer from "./OppContainer";
 import { getAllOpportunities, passedVariables } from "./OppOperations";
@@ -21,8 +21,9 @@ export default function OppController(): ReactElement {
 	const duration = useReactiveVar(durationVar);
 	const program = useReactiveVar(programVar);
 	const startDate = useReactiveVar(startDateVar);
+	const entity = useReactiveVar(entityVar);
 	const oppCardLength = isXS ? "" : isLG ? "w-90" : "w-80";
-	const variables = useMemo(() => passedVariables(startDate, duration, program), [startDate, duration, program]);
+	const variables = useMemo(() => passedVariables(startDate, duration, program, entity), [entity, duration, program]);
 
 	const { loading, error, data, networkStatus, fetchMore } = useQuery(getAllOpportunities, {
 		variables: variables,
