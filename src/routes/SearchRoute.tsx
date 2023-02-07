@@ -49,13 +49,12 @@ export default function SearchRoute(props): ReactElement {
 			console.log(value);
 			setEntity(isNaN(value) ? 1623 : value);
 		}
-		// if (dateValue) {
-		// 	const date = parse(dateValue as string, "yyyy-L-d", new Date());
-		// 	const isValid: boolean = isValidDate(date);
-		// 	if (isValid) {
-		// 		setStartDate(date);
-		// 	}
-		// }
+
+		const date = new Date();
+		const isValid: boolean = isValidDate(date);
+		if (isValid) {
+			setStartDate(date);
+		}
 		return () => {
 			setIsSearch(false);
 		};

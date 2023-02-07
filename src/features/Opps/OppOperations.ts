@@ -83,7 +83,6 @@ export const passedVariables = (
 	const date = format(startDate, "yyyy-L-d");
 	const durationVal = duration ? DurationTypes.keys[duration as DurationKeys].id : undefined;
 	const programVal = program ? ProgramTypes.keys[program as ProgramKeys].id : undefined;
-
 	return {
 		page: page ? page : 1,
 		per_page: 10,
@@ -92,6 +91,8 @@ export const passedVariables = (
 			earliest_start_date: {
 				from: date,
 			},
+			statuses: "open",
+
 			[DurationTypes.name]: durationVal,
 			[ProgramTypes.name]: programVal,
 			// sub_products: 55,

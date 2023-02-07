@@ -23,10 +23,10 @@ export const DurationTypes: IDuration = {
 	keys: {
 		short: { title: "6-12 Weeks", id: "short" },
 		medium: { title: "3-6 Months", id: "medium" },
-		long: { title: "6-8 Months", id: "long" },
+		long: { title: "6-12 Months", id: "long" },
 	},
 };
-export type ProgramKeys = "GTa" | "GTe";
+export type ProgramKeys = "GV" | "GTa" | "GTe";
 export type IPrograms = {
 	name: string;
 	keys: {
@@ -41,12 +41,12 @@ export type IPrograms = {
 export const ProgramTypes: IPrograms = {
 	name: "programmes",
 	keys: {
-		// GV: {
-		//   title: "Volunteer for a cause",
-		//   programName: "Global Volunteer",
-		//   link: "global-volunteer",
-		//   id: [7],
-		// },
+		GV: {
+			title: "Volunteer for a cause",
+			programName: "Global Volunteer",
+			link: "global-volunteer",
+			id: [7],
+		},
 		GTa: {
 			title: "Intern for a company",
 			programName: "Global Talent",

@@ -2,267 +2,267 @@
 @import "custom";
 @import "~react-datepicker/dist/react-datepicker.css";
 html {
-  font-size: 14px !important;
+	font-size: 14px !important;
 }
 .app {
-  font-family: Lato !important;
+	font-family: Lato !important;
 }
 .react-datepicker {
-  font-family: Lato !important;
+	font-family: Lato !important;
 }
 .react-datepicker__day--selected {
-  background-color: #037ef3 !important;
+	background-color: #037ef3 !important;
 }
 .react-datepicker__input-container {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 100%;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
 }
 
 .navbar__icons {
-  width: 40px !important;
-  height: 40px !important;
+	width: 40px !important;
+	height: 40px !important;
 }
 
 .navbar__longicons {
-  width: 185px;
+	width: 185px;
 }
 
 .navbar__toggle {
-  @extend .navbar__icons;
+	@extend .navbar__icons;
 }
 .navbar__A {
-  @extend .navbar__icons;
+	@extend .navbar__icons;
 }
 
 .dropdown-item-clear {
-  @extend .dropdown-item;
-  color: $danger;
+	@extend .dropdown-item;
+	color: $danger;
 }
 .dropdown-item-clear.disabled {
-  @extend .dropdown-item;
-  color: $danger;
-  opacity: 0.65;
+	@extend .dropdown-item;
+	color: $danger;
+	opacity: 0.65;
 }
 .dropdown-item-clear:active {
-  @extend .dropdown-item;
-  color: white !important;
-  background-color: $danger;
+	@extend .dropdown-item;
+	color: white !important;
+	background-color: $danger;
 }
 .dropdown-item-clear:hover {
-  @extend .dropdown-item;
-  color: $danger !important;
+	@extend .dropdown-item;
+	color: $danger !important;
 }
 .dropdown-item-clear:hover:active {
-  @extend .dropdown-item;
-  color: $white !important;
-  background-color: $danger;
+	@extend .dropdown-item;
+	color: $white !important;
+	background-color: $danger;
 }
 .f16 {
-  font-size: 16px !important;
+	font-size: 16px !important;
 }
 .f12 {
-  font-size: 12px !important;
+	font-size: 12px !important;
 }
 
 .mw-25 {
-  max-width: 25% !important;
+	max-width: 25% !important;
 }
 .dropdown-override.show {
-  opacity: 1 !important;
-  visibility: visible !important;
+	opacity: 1 !important;
+	visibility: visible !important;
 }
 
 .dropdown-override {
-  @extend.dropdown-menu;
-  display: block !important;
-  visibility: hidden !important;
-  opacity: 0;
-  transition: opacity 0.1s linear;
-  -webkit-transition: opacity 0.1s linear;
-  -moz-transition: opacity 0.1s linear;
-  -ms-transition: opacity 0.1s linear;
-  -o-transition: opacity 0.1s linear;
+	@extend.dropdown-menu;
+	display: block !important;
+	visibility: hidden !important;
+	opacity: 0;
+	transition: opacity 0.1s linear;
+	-webkit-transition: opacity 0.1s linear;
+	-moz-transition: opacity 0.1s linear;
+	-ms-transition: opacity 0.1s linear;
+	-o-transition: opacity 0.1s linear;
 }
 
 .search-btn {
-  @extend .white-button-click;
+	@extend .white-button-click;
 }
 .search-btn:hover {
-  background-color: #f7f7f7 !important;
+	background-color: #f7f7f7 !important;
 }
 
 .white-button-click:active {
-  background-color: #e8e8e8 !important;
+	background-color: #e8e8e8 !important;
 }
 
 .navbar__toggle:focus {
-  outline: none;
+	outline: none;
 }
 
 // .white-button-click:active {
 //   background-color: #fff;
 // }
 .white-button-click {
-  background-color: #fff;
-  transition: all 0.1s linear;
-  -webkit-transition: all 0.1s linear;
-  -moz-transition: all 0.1s linear;
-  -ms-transition: all 0.1s linear;
-  -o-transition: all 0.1s linear;
+	background-color: #fff;
+	transition: all 0.1s linear;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	-ms-transition: all 0.1s linear;
+	-o-transition: all 0.1s linear;
 }
 
 .opp-card {
-  cursor: pointer;
-  position: relative;
-  transition: all 0.1s linear;
-  -webkit-transition: all 0.1s linear;
-  -moz-transition: all 0.1s linear;
-  -ms-transition: all 0.1s linear;
-  -o-transition: all 0.1s linear;
+	cursor: pointer;
+	position: relative;
+	transition: all 0.1s linear;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	-ms-transition: all 0.1s linear;
+	-o-transition: all 0.1s linear;
 }
 
 .opp-card:hover {
-  background-color: #f7f7f7 !important;
+	background-color: #f7f7f7 !important;
 }
 .opp-card:active {
-  background-color: #e8e8e8 !important;
+	background-color: #e8e8e8 !important;
 }
 .opp-card__save-btn:focus {
-  box-shadow: none !important;
+	box-shadow: none !important;
 }
 .opp-card__description {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 .GV {
-  color: #f85a40 !important;
+	background-color: #f85a40 !important;
 }
 .GTe {
-  color: #f48924 !important;
+	background-color: #f48924 !important;
 }
 .GTa {
-  color: #0cb9c1 !important;
+	background-color: #0cb9c1 !important;
 }
 .opp-card__save-btn {
-  box-shadow: none;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+	box-shadow: none;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
 }
 
 .like-btn {
-  /* padding-top: 2px; */
-  background-color: white;
-  border-radius: 4rem;
-  width: 2rem;
-  height: 2rem;
-  -webkit-border-radius: 4rem;
-  -moz-border-radius: 4rem;
-  -ms-border-radius: 4rem;
-  -o-border-radius: 4rem;
+	/* padding-top: 2px; */
+	background-color: white;
+	border-radius: 4rem;
+	width: 2rem;
+	height: 2rem;
+	-webkit-border-radius: 4rem;
+	-moz-border-radius: 4rem;
+	-ms-border-radius: 4rem;
+	-o-border-radius: 4rem;
 }
 .heart-container {
-  position: relative;
+	position: relative;
 }
 @keyframes heart-size {
-  0% {
-    font-size: 1rem;
-  }
-  60% {
-    font-size: 1.25rem;
-  }
-  100% {
-    font-size: 1rem;
-  }
+	0% {
+		font-size: 1rem;
+	}
+	60% {
+		font-size: 1.25rem;
+	}
+	100% {
+		font-size: 1rem;
+	}
 }
 .solid-heart {
-  color: red;
-  animation-name: heart-size;
-  animation-timing-function: ease-in;
-  animation-duration: 0.25s;
-  transition: all 0.25s ease-out;
-  -webkit-transition: all 0.25s ease-out;
-  -moz-transition: all 0.25s ease-out;
-  -ms-transition: all 0.25s ease-out;
-  -o-transition: all 0.25s ease-out;
+	color: red;
+	animation-name: heart-size;
+	animation-timing-function: ease-in;
+	animation-duration: 0.25s;
+	transition: all 0.25s ease-out;
+	-webkit-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	-ms-transition: all 0.25s ease-out;
+	-o-transition: all 0.25s ease-out;
 }
 
 @media screen and (min-width: 576px) {
-  .heart-container:hover .border-heart {
-    color: red;
-    transition: all 0.2s ease-out;
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    -ms-transition: all 0.2s ease-out;
-    -o-transition: all 0.2s ease-out;
-  }
+	.heart-container:hover .border-heart {
+		color: red;
+		transition: all 0.2s ease-out;
+		-webkit-transition: all 0.2s ease-out;
+		-moz-transition: all 0.2s ease-out;
+		-ms-transition: all 0.2s ease-out;
+		-o-transition: all 0.2s ease-out;
+	}
 }
 .w-5 {
-  width: 5%;
+	width: 5%;
 }
 .w-10 {
-  width: 10%;
+	width: 10%;
 }
 .w-15 {
-  width: 15%;
+	width: 15%;
 }
 .w-20 {
-  width: 20%;
+	width: 20%;
 }
 .w-30 {
-  width: 30%;
+	width: 30%;
 }
 .w-35 {
-  width: 35%;
+	width: 35%;
 }
 .w-40 {
-  width: 40%;
+	width: 40%;
 }
 .w-45 {
-  width: 45%;
+	width: 45%;
 }
 .w-55 {
-  width: 55%;
+	width: 55%;
 }
 .w-60 {
-  width: 60%;
+	width: 60%;
 }
 .w-65 {
-  width: 65%;
+	width: 65%;
 }
 .w-70 {
-  width: 70%;
+	width: 70%;
 }
 .w-80 {
-  width: 80%;
+	width: 80%;
 }
 .w-85 {
-  width: 85%;
+	width: 85%;
 }
 .w-90 {
-  width: 90%;
+	width: 90%;
 }
 .w-95 {
-  width: 95%;
+	width: 95%;
 }
 .w-97 {
-  width: 97%;
+	width: 97%;
 }
 .w-31 {
-  width: 31% !important;
+	width: 31% !important;
 }
 .mw-10 {
-  max-width: 10% !important;
+	max-width: 10% !important;
 }
 .w-3 {
-  min-width: 3% !important;
-  width: 3% !important;
+	min-width: 3% !important;
+	width: 3% !important;
 }
 .w-28 {
-  width: 28% !important;
-  min-width: 28% !important;
+	width: 28% !important;
+	min-width: 28% !important;
 }

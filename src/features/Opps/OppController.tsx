@@ -23,7 +23,10 @@ export default function OppController(): ReactElement {
 	const startDate = useReactiveVar(startDateVar);
 	const entity = useReactiveVar(entityVar);
 	const oppCardLength = isXS ? "" : isLG ? "w-90" : "w-80";
-	const variables = useMemo(() => passedVariables(startDate, duration, program, entity), [entity, duration, program]);
+	const variables = useMemo(
+		() => passedVariables(startDate, duration, program, entity),
+		[entity, duration, program, startDate]
+	);
 
 	const { loading, error, data, networkStatus, fetchMore } = useQuery(getAllOpportunities, {
 		variables: variables,
@@ -56,7 +59,8 @@ export default function OppController(): ReactElement {
 		<Container
 			fluid="md"
 			className={`p-3 ${oppCardLength} d-flex align-items-center justify-content-center flex-column`}
-			style={{ marginTop: "100px" }}>
+			style={{ marginTop: "100px" }}
+		>
 			<OppContainer
 				totalPages={totalPages}
 				currentPage={currentPage}
@@ -64,7 +68,8 @@ export default function OppController(): ReactElement {
 				loading={loading}
 				error={error}
 				data={validatedDataArray.value}
-				networkStatus={networkStatus}></OppContainer>
+				networkStatus={networkStatus}
+			></OppContainer>
 		</Container>
 	);
 }

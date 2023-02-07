@@ -1,49 +1,46 @@
-
-import { createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import axios from 'axios';
+import { createHttpLink } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import axios from "axios";
 
 export const httpLink = createHttpLink({
-    uri: 'https://gis-api.aiesec.org/graphql',
+	uri: "https://gis-api.aiesec.org/graphql",
 });
 export const authLink = setContext(async (_, { headers }) => {
-    const config = {
-        method: 'get',
-        url: 'https://aiesec.org/getEnvironment',
-        headers: {
-            // "origin": 'https://jlc-opportunity-viewer.web.app/',
-            // 'authority': 'aiesec.org', 
-            'accept': 'application/json, text/plain, */*',
-            // 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36', 
-            // 'dnt': '1',
-            // 'sec-fetch-site': 'same-origin',
-            // 'sec-fetch-mode': 'cors',
-            // 'sec-fetch-dest': 'empty',
-            // 'referer': 'https://aiesec.org/search',
-            'accept-language': 'en-US,en;q=0.9'
-        }
-    };
-    let token = 'e316ebe109dd84ed16734e5161a2d236d0a7e6daf499941f7c110078e3c75493';
-    // try {
-    //     const data = await axios(config as any)
-    //     token = data?.data?.environment?.publicToken
+	const config = {
+		method: "get",
+		url: "https://aiesec.org/getEnvironment",
+		headers: {
+			// "origin": 'https://jlc-opportunity-viewer.web.app/',
+			// 'authority': 'aiesec.org',
+			accept: "application/json, text/plain, */*",
+			// 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36',
+			// 'dnt': '1',
+			// 'sec-fetch-site': 'same-origin',
+			// 'sec-fetch-mode': 'cors',
+			// 'sec-fetch-dest': 'empty',
+			// 'referer': 'https://aiesec.org/search',
+			"accept-language": "en-US,en;q=0.9",
+		},
+	};
+	let token = "";
+	// try {
+	//     const data = await axios(config as any)
+	//     token = data?.data?.environment?.publicToken
 
-    // }
-    // catch (err) {
-    //     console.log(err)
+	// }
+	// catch (err) {
+	//     console.log(err)
 
-    // }
-    // const token = localStorage.getItem('token');
-    // return the headers to the context so httpLink can read them
-    return {
-        headers: {
-            ...headers,
-            "Authorization": token ? token : "",
-        }
-    }
+	// }
+	// const token = localStorage.getItem('token');
+	// return the headers to the context so httpLink can read them
+	return {
+		headers: {
+			...headers,
+			Authorization: token ? token : "",
+		},
+	};
 });
-
-
 
 // curl 'https://gis-api.aiesec.org/graphql' \
 // -H 'Connection: keep-alive' \
